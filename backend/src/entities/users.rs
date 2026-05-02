@@ -12,6 +12,7 @@ pub struct Model {
     pub email: String,
     pub password_hash: String,
     pub cookie: Option<String>,
+    pub username: String,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]

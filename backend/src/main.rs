@@ -4,6 +4,7 @@ use dotenvy::dotenv;
 use std::env;
 
 mod entities;
+mod handlers;
 
 pub struct AppState {
     pub db: DatabaseConnection,
@@ -21,6 +22,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(AppState { db: db.clone() }))
+            .route("/signup", web::post().to(handlers::auth::signup))
             .route("/health", web::get().to(health_check))
     })
     .bind(("127.0.0.1", 8080))?
