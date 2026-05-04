@@ -26,6 +26,8 @@ async fn main() -> std::io::Result<()> {
             .app_data(web::Data::new(AppState { db: db.clone() }))
             .route("/signup", web::post().to(handlers::auth::signup))
             .route("/signin", web::post().to(handlers::auth::signin))
+            .route("/quote", web::get().to(handlers::jupiter::get_quote))
+            .route("/swap", web::post().to(handlers::jupiter::get_swap_tx))
             .route("/health", web::get().to(health_check))
     })
     .bind(("127.0.0.1", 8080))?

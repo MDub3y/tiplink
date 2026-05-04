@@ -19,3 +19,6 @@ uuid = { version = "1.10", features = ["v4", "serde"] }
 argon2 = { version = "0.5.3", features = ["password-hash"] }
 jsonwebtoken = "10.3"
 serde_json = "1.0.149"
+reqwest = { version = "0.13.3", features = ["json"] }
+bs58 = "0.5.1"
+hex = "0.4.3"
